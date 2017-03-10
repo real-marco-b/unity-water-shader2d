@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 5ddf0c82d82651a418af73842523082e
+timeCreated: 1489161995
+licenseType: Free
+ShaderImporter:
+  defaultTextures:
+  - _MainTex: {instanceID: 0}
+  - _DisplacementTex: {instanceID: 0}
+  - _WaterTex: {instanceID: 0}
+  - _MaskTex: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
