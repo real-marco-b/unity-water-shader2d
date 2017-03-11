@@ -8,6 +8,7 @@
 		_MaskTex ("MaskTex", 2D) = "white" {}
 		_BaseHeight ("BaseHeight", float) = 0.4
 		_Turbulence ("Turbulence", float) = 1
+		_ScrollOffset ("ScrollOffset", float) = 0
 	}
 	SubShader
 	{
@@ -45,6 +46,7 @@
 			fixed4 _MainTex_TexelSize;
 			float _BaseHeight;
 			fixed _Turbulence;
+			fixed _ScrollOffset;
 			
 			v2f vert (appdata v)
 			{
@@ -57,10 +59,10 @@
 			}
 
 			float wave(float x) {
-				fixed waveOffset = 	cos((x - _Time) * 60) * 0.004
-									+ cos((x - 2 * _Time) * 20) * 0.008
-									+ sin((x + 2 * _Time) * 35) * 0.01
-									+ cos((x + 4 * _Time) * 70) * 0.001;
+				fixed waveOffset = 	cos((x - _Time + _ScrollOffset) * 60) * 0.004
+									+ cos((x - 2 * _Time + _ScrollOffset) * 20) * 0.008
+									+ sin((x + 2 * _Time + _ScrollOffset) * 35) * 0.01
+									+ cos((x + 4 * _Time + _ScrollOffset) * 70) * 0.001;
 				return _BaseHeight + waveOffset * _Turbulence;
 			}
 			

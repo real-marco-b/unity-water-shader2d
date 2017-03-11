@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DisplacementBehaviour : MonoBehaviour {
-
+public class DisplacementBehaviour : MonoBehaviour 
+{
     private Material _mat;
     private RenderTexture _screenTex;
     private RenderTexture _waterMaskTex;
@@ -11,6 +11,7 @@ public class DisplacementBehaviour : MonoBehaviour {
     public Texture _displacementTex;
     public Texture _waterTex;
     public float _turbulence = 1f;
+    public float _scrollOffset = 0f;
 
     private GameObject _postRenderCamObj;
     private Camera _postRenderCam;
@@ -44,6 +45,7 @@ public class DisplacementBehaviour : MonoBehaviour {
         _mat.SetTexture("_DisplacementTex", _displacementTex);
         _mat.SetTexture("_WaterTex", _waterTex);
         _mat.SetFloat("_Turbulence", _turbulence);
+        _mat.SetFloat("_ScrollOffset", _scrollOffset);
         Graphics.Blit(_screenTex, null, _mat);
 	}
 
