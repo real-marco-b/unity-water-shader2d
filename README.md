@@ -9,14 +9,33 @@ Checkout the video:
 
 ## Usage
 
-Attach the DisplacementBehaviour to your main camera and set up a noise and water texture as behaviour property (the sample ships with sample textures).
+### Try it 
 
-Limit the water effect to a certain scene area by adding planes to the built-in Water layer.
-Everything else is set up programmatically by script.
+Just clone or download the repository and open the folder within Unity. 
 
-You can specify the turbulence (waviness) of the water by setting the Turbulence property of the DisplacementBehaviour.
+Run the included Demo Scene.
 
-The turbulence will also influence the strength of refraction.
+
+### Use it within your Game
+
+
+* Put the DisplacementBehaviour and DisplacementShader into your game. Keep the shader under Resources folder.
+
+* Attach the DisplacementBehaviour to your main camera and set up a noise and water texture as behaviour property (the sample ships with sample textures).
+
+* Limit the water effect to a certain scene area by adding planes to the built-in Water layer.
+
+* You can specify the turbulence (waviness) of the water by setting the Turbulence property of the DisplacementBehaviour. The turbulence will also influence the strength of refraction.
+
+
+### Implement Scrolling
+
+When the camera scrolls left or right, the water waves need to change their phase offset. Otherwise they will appear to be a "camera overlay" flying over the scene.
+
+The DisplacementBehaviour has a scroll offset parameter which can be incremented / decremented on scrolling.
+
+Check out the included CamScrollBehaviour as a reference implementation for scrolling.
+
 
 
 ## What's next
