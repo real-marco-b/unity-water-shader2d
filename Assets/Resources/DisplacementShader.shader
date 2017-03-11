@@ -7,6 +7,7 @@
 		_WaterTex ("WaterTex", 2D) = "white" {}
 		_MaskTex ("MaskTex", 2D) = "white" {}
 		_BaseHeight ("BaseHeight", float) = 0.4
+		_Turbulence ("Turbulence", float) = 1
 	}
 	SubShader
 	{
@@ -40,10 +41,10 @@
 			sampler2D _DisplacementTex;
 			sampler2D _WaterTex;
 			sampler2D _MaskTex;
-			float4 _TopColor;
 			float4 _MainTex_ST;
 			fixed4 _MainTex_TexelSize;
 			float _BaseHeight;
+			fixed _Turbulence;
 			
 			v2f vert (appdata v)
 			{
@@ -56,10 +57,11 @@
 			}
 
 			float wave(float x) {
-				return _BaseHeight 	+ cos((x - _Time) * 60) * 0.004
+				fixed waveOffset = 	cos((x - _Time) * 60) * 0.004
 									+ cos((x - 2 * _Time) * 20) * 0.008
 									+ sin((x + 2 * _Time) * 35) * 0.01
 									+ cos((x + 4 * _Time) * 70) * 0.001;
+				return _BaseHeight + waveOffset * _Turbulence;
 			}
 			
 			fixed4 frag (v2f i) : SV_Target
@@ -75,8 +77,8 @@
 				disPos.x += (_Time[0]) % 2;
 				disPos.y += (_Time[0]) % 2;
 				fixed4 dis = tex2D(_DisplacementTex, disPos);
-				i.uv.x += dis * 0.006 * isTexelBelow * maskValue;
-				i.uv.y += dis * 0.006 * isTexelBelow * maskValue;
+				i.uv.x += dis * 0.006 * isTexelBelow * maskValue * _Turbulence;
+				i.uv.y += dis * 0.006 * isTexelBelow * maskValue * _Turbulence;
 
 				fixed4 col = tex2D(_MainTex, fixed2(i.uv.x, i.uv.y)); 
 				fixed waterColBlendFac = maskValue * isTexelBelow * 0.5;				

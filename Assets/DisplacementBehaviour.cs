@@ -10,6 +10,7 @@ public class DisplacementBehaviour : MonoBehaviour {
 
     public Texture _displacementTex;
     public Texture _waterTex;
+    public float _turbulence = 1f;
 
     private GameObject _postRenderCamObj;
     private Camera _postRenderCam;
@@ -42,6 +43,7 @@ public class DisplacementBehaviour : MonoBehaviour {
         _mat.SetTexture("_MaskTex", _waterMaskTex);
         _mat.SetTexture("_DisplacementTex", _displacementTex);
         _mat.SetTexture("_WaterTex", _waterTex);
+        _mat.SetFloat("_Turbulence", _turbulence);
         Graphics.Blit(_screenTex, null, _mat);
 	}
 

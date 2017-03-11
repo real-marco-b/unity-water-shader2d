@@ -6,17 +6,32 @@ Checkout the video:
 
 [![Youtube Demo Video](https://img.youtube.com/vi/M-sK7hOlYnE/1.jpg)](https://www.youtube.com/watch?v=M-sK7hOlYnE)
 
-## Disclaimer
-
-I am pretty new to shader programming, so the source may not be optimal. Contributions are welcome! :)
-I tested the shader on Windows, Mac OS, iPad Pro 9.7 and iPhone 7.
-
 
 ## Usage
 
 Attach the DisplacementBehaviour to your main camera and set up a noise and water texture as behaviour property (the sample ships with sample textures).
+
 Limit the water effect to a certain scene area by adding planes to the built-in Water layer.
 Everything else is set up programmatically by script.
+
+You can specify the turbulence (waviness) of the water by setting the Turbulence property of the DisplacementBehaviour.
+
+The turbulence will also influence the strength of refraction.
+
+
+## What's next
+
+* Physical Collision Behaviour (Ripples)
+
+* Better Effects (I'm experimenting ;) )
+
+* Better Demo Scene
+
+
+## Disclaimer
+
+I am pretty new to shader programming, so the source may not be optimal. Contributions are welcome! :)
+I tested the shader on Windows, Mac OS, iPad Pro 9.7 and iPhone 7.
 
 
 ## Implementation
