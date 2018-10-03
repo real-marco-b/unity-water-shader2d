@@ -6,12 +6,12 @@ public class CamScrollBehaviour : MonoBehaviour
 {
     private DisplacementBehaviour _displacement;
 
-	void Start () 
+    void Start () 
     {
         _displacement = Camera.main.GetComponent<DisplacementBehaviour>();
-	}
-	
-	void Update () 
+    }
+    
+    void Update () 
     {
         if (Input.GetKey(KeyCode.LeftArrow))
         {
@@ -22,7 +22,7 @@ public class CamScrollBehaviour : MonoBehaviour
         {
             Scroll(1, GetScrollAmount());
         }
-	}
+    }
 
     private float GetScrollAmount() 
     {

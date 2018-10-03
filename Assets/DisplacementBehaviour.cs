@@ -33,7 +33,7 @@ public class DisplacementBehaviour : MonoBehaviour
     }
 
     void OnPostRender()
-	{
+    {
         _postRenderCam.CopyFrom(_screenCam);
         _postRenderCam.clearFlags = CameraClearFlags.SolidColor;
         _postRenderCam.backgroundColor = Color.black;
@@ -47,7 +47,7 @@ public class DisplacementBehaviour : MonoBehaviour
         _mat.SetFloat("_Turbulence", _turbulence);
         _mat.SetFloat("_ScrollOffset", _scrollOffset);
         Graphics.Blit(_screenTex, null, _mat);
-	}
+    }
 
     private void CreatePostRenderCam() 
     {
